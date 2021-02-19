@@ -1,0 +1,96 @@
+[
+  {
+    'id': '6917703442169400582',
+    'desc': '',
+    'createTime': 1610653359,
+    'video': {
+      'id': '6917703442169400582',
+      'height': 1024,
+      'width': 576,
+      'duration': 10,
+      'ratio': '720p',
+      'cover': 'https://p77-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/921b1a7ce9044b37923989023d2c5357?x-expires=1613620800&x-signature=UMig4AiaU7BxBVqnhwfEFmINo90%3D',
+      'originCover': 'https://p77-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/40d18c71d1a3436fbbb724f938187699_1610673411?x-expires=1613620800&x-signature=NUDNM9FVZYgoKUZRSZhBow9qRKw%3D',
+      'dynamicCover': 'https://p77-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/295e2173fcd849e8b10a42967ddd6859_1610673409?x-expires=1613620800&x-signature=SDeB5gfec7L7zzjnPEWjeEXThaQ%3D',
+      'playAddr': 'https://v16-web.tiktok.com/video/tos/useast2a/tos-useast2a-pve-0068/3c6109e903fd470292168820d35bba20/?a=1988&br=1272&bt=636&cd=0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=3&er=&expire=1613623129&l=202102172238390101891960705A7537EB&lr=tiktok_m&mime_type=video_mp4&pl=0&policy=2&qs=0&rc=ajg7c2Y6OTs8MzMzMzczM0ApOzgzNTc7ZWVoNzY7M2k7OmdoLzRuNjRkcS1gLS00MTZzcy8wNGI1LWAtXy02Ly8zXzM6Yw%3D%3D&signature=697335d696cf79166cb2e78ff187a9ab&tk=tt_webid_v2&vl=&vr=',
+      'downloadAddr': 'https://v16-web.tiktok.com/video/tos/useast2a/tos-useast2a-pve-0068/3c6109e903fd470292168820d35bba20/?a=1988&br=1272&bt=636&cd=0%7C0%7C0&ch=0&cr=0&cs=0&dr=0&ds=3&er=&expire=1613623129&l=202102172238390101891960705A7537EB&lr=tiktok_m&mime_type=video_mp4&pl=0&policy=2&qs=0&rc=ajg7c2Y6OTs8MzMzMzczM0ApOzgzNTc7ZWVoNzY7M2k7OmdoLzRuNjRkcS1gLS00MTZzcy8wNGI1LWAtXy02Ly8zXzM6Yw%3D%3D&signature=697335d696cf79166cb2e78ff187a9ab&tk=tt_webid_v2&vl=&vr=',
+      'shareCover': [
+        '',
+        'https://p77-sign-sg.tiktokcdn.com/tos-maliva-p-0068/40d18c71d1a3436fbbb724f938187699_1610673411~tplv-tiktok-play.jpeg?x-expires=1613620800&x-signature=v5bglXzJj53iWve%2BVY8Iouqgs68%3D',
+        'https://p77-sign-sg.tiktokcdn.com/tos-maliva-p-0068/40d18c71d1a3436fbbb724f938187699_1610673411~tplv-tiktok-play2.jpeg?x-expires=1613620800&x-signature=Lf1%2BOOPwkaysDFKO0eZxEZSIXFY%3D'
+      ],
+      'reflowCover': 'https://p77-sign-sg.tiktokcdn.com/obj/tos-maliva-p-0068/921b1a7ce9044b37923989023d2c5357?x-expires=1613620800&x-signature=UMig4AiaU7BxBVqnhwfEFmINo90%3D'
+    },
+    'author': {
+      'id': '6823013455777694725',
+      'uniqueId': 'aninha_oliveira57',
+      'nickname': 'Ana Julia Gonçalves',
+      'avatarThumb': 'https://p77-sign-sg.tiktokcdn.com/aweme/100x100/tos-alisg-avt-0068/f6b48d80bf44a4c4dc4dac95e1b5bd6b.jpeg?x-expires=1613685600&x-signature=oTkcCb0ZRX8TMXvaUJQuWH%2FjlqM%3D',
+      'avatarMedium': 'https://p77-sign-sg.tiktokcdn.com/aweme/720x720/tos-alisg-avt-0068/f6b48d80bf44a4c4dc4dac95e1b5bd6b.jpeg?x-expires=1613685600&x-signature=%2BT5CmaHM46FABJ1E9RCQjZauBVs%3D',
+      'avatarLarger': 'https://p77-sign-sg.tiktokcdn.com/aweme/1080x1080/tos-alisg-avt-0068/f6b48d80bf44a4c4dc4dac95e1b5bd6b.jpeg?x-expires=1613685600&x-signature=VLP%2FscezfkzqUamP5TbThXKU%2Fps%3D',
+      'signature': 'Rumo a 300 seguidores ���🙌🏻🏻 sigo de volta',
+      'verified': False,
+      'secUid': 'MS4wLjABAAAA7isjJBfdSBZx6K2BXTpwwbJzrvsRB k6u8UxGZT4dcx1xh8QbLMQ7ush3-V',
+      'secret': False,
+      'ftc': False,
+      'relation': 0,
+      'openFavorite': False,
+      'commentSetting': 0,
+      'duetSetting': 0,
+      'stitchSetting': 0,
+      'privateAccount': False
+    },
+    'music': {
+      'id': '6796126109965502465',
+      'title': 'You Got It',
+      'playUrl': 'https://sf16-ies-music-sg.tiktokcdn.com/obj/tiktok-obj/55322911097fff7e5e14e8afb1251fd4.m4a',
+      'coverThumb': 'https://p16-sg.tiktokcdn.com/aweme/100x100/tos-alisg-i-0000/be83805bfdf243e3a07c67a53de646bf.jpeg',
+      'coverMedium': 'https://p16-sg.tiktokcdn.com/aweme/200x200/tos-alisg-i-0000/be83805bfdf243e3a07c67a53de646bf.jpeg',
+      'coverLarge': 'https://p16-sg.tiktokcdn.com/aweme/720x720/tos-alisg-i-0000/be83805bfdf243e3a07c67a53de646bf.jpeg',
+      'authorName': 'Vedo',
+      'original': False,
+      'duration': 60,
+      'album': 'You Got It'
+    },
+    'stats': {
+      'diggCount': 7,
+      'shareCount': 0,
+      'commentCount': 1,
+      'playCount': 34
+    },
+    'duetInfo': {
+      'duetFromId': '0'
+    },
+    'originalItem': False,
+    'officalItem': False,
+    'secret': False,
+    'forFriend': False,
+    'digged': False,
+    'itemCommentStatus': 0,
+    'showNotPass': False,
+    'vl1': False,
+    'itemMute': False,
+    'authorStats': {
+      'followingCount': 553,
+      'followerCount': 257,
+      'heartCount': 492,
+      'videoCount': 28,
+      'diggCount': 8451,
+      'heart': 492
+    },
+    'privateItem': False,
+    'duetEnabled': True,
+    'stitchEnabled': True,
+    'shareEnabled': True,
+    'stickersOnItem': [
+      {
+        'stickerType': 4,
+        'stickerText': [
+          'Gente essa é  minha amiga sigam ela pfv',
+          'Gente essa é minha amiga sigam ela pfv'
+        ]
+      }
+    ],
+    'isAd': False
+  }
+]
