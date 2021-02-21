@@ -24,14 +24,15 @@ with open('tiktokPerfil.csv') as dados:
         for dado in csv_reader:
 
                 nameTiktoker = dado[0]
+                
                 tiktoksByUser = api.byUsername(nameTiktoker, count=numberTiktoks)
                 numVideo = 1
 
                 for tiktoks in tiktoksByUser:
                                                 
-                        scrapTime           = datetime.now()
+                        scrapTime           = str(datetime.now().date())
                         #Author
-                        #AuthorName          = tiktoks['author']['nickname']
+                        AuthorName          = tiktoks['author']['nickname']
                         avatarAuthor        = tiktoks['author']['avatarMedium'] 
                         AuthorId            = tiktoks['author']['id']
                         Author              = tiktoks['author']['uniqueId']
@@ -45,7 +46,6 @@ with open('tiktokPerfil.csv') as dados:
                         commentCount        = tiktoks['stats']['commentCount']
                         shareCount          = tiktoks['stats']['shareCount']
                         playCount           = tiktoks['stats']['playCount']
-                        
                         #Music
                         musicId             = tiktoks['music']['id']
                         musicTitle          = tiktoks['music']['title']
@@ -62,7 +62,7 @@ with open('tiktokPerfil.csv') as dados:
                         
                         #dadosToCsv = pd.concat([createTime,AuthorId,Author,videoId,description,DurationVideo])
 
-                        data = [[num,scrapTime,createTime,avatarAuthor,Author,description,
+                        data = [[numVideo,scrapTime,createTime,avatarAuthor,AuthorName,Author,description,
                                         DurationVideo,VideoLink,likesCount,
                                         commentCount,shareCount,playCount,
                                         musicId,musicTitle, musicAuthorName]]
@@ -76,7 +76,7 @@ with open('tiktokPerfil.csv') as dados:
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
                         
 
-        dataCsv.columns = ['num','scrapTime', 'createTime','AvatarAuthor', 'Author', 'description',
+        dataCsv.columns = ['num','scrapTime', 'createTime','AvatarAuthor', 'AuthorName','Author', 'description',
                                 'DurationVideo', 'VideoLink', 'likesCount',
                                 'commentCount', 'shareCount', 'playCount',
                                 'musicId', 'musicTitle', 'musicAuthorName']
