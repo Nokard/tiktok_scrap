@@ -9,6 +9,9 @@ from tqdm import tqdm
 from conf import api
 
 
+from getMusicData import getMusic
+
+
 def TimesToDate(timestamp):
     dt_object = datetime.fromtimestamp(timestamp)
     return dt_object
@@ -43,8 +46,7 @@ with open('tiktokPerfil.csv') as dados:
                         Author = tiktoks['author']['uniqueId']
                         videoId = tiktoks['video']['id']
                         DurationVideo = tiktoks['video']['duration']
-                        createTime = str(
-                                TimesToDate(tiktoks['createTime']))
+                        createTime = str(TimesToDate(tiktoks['createTime']))
                         description = tiktoks['desc']
 
                         # Stats
@@ -61,6 +63,8 @@ with open('tiktokPerfil.csv') as dados:
                         except KeyError as Error:
                                 print(Error)
 
+
+                        
                         # Insights = api.get_insights(videoId)
 
                         # Creating link vídeo
@@ -69,8 +73,7 @@ with open('tiktokPerfil.csv') as dados:
                         # dadosToCsv = pd.concat([createTime,AuthorId,Author,videoId,description,DurationVideo])
 
                         data = [[numVideo, scrapTime, createTime, avatarAuthor, AuthorName, Author, description,
-                                DurationVideo, VideoLink, likesCount,
-                                commentCount, shareCount, playCount,
+                                DurationVideo, VideoLink, likesCount,commentCount, shareCount, playCount,
                                 musicId, musicTitle, musicAuthorName]]
 
                         dataCsv = dataCsv.append(data, ignore_index=False)
@@ -79,11 +82,9 @@ with open('tiktokPerfil.csv') as dados:
 
                         numVideo += 1
 
-                        print(nameTiktoker, 'Total of Videos: ', numVideo)
+                print(nameTiktoker, 'Total of Videos: ', numVideo)
 
-                dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
-                                        'DurationVideo', 'VideoLink', 'likesCount',
-                                        'commentCount', 'shareCount', 'playCount',
-                                        'musicId', 'musicTitle', 'musicAuthorName']
+        dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
+        'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId', 'musicTitle', 'musicAuthorName']
 
         dataCsv.to_csv('Data/tiktokData.csv', encoding='utf-8', index=False)
