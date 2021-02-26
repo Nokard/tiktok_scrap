@@ -4,6 +4,7 @@ import pandas as pd
 import csv
 from time import sleep
 
+from progress.bar import IncrementalBar
 from tqdm import tqdm
 # Importing the settings
 from conf import api
@@ -31,6 +32,7 @@ with open('tiktokPerfil.csv') as dados:
         next(csv_reader)
 
         for dado in csv_reader:
+
                 nameTiktoker = dado[0]
 
                 tiktoksByUser = api.byUsername(nameTiktoker, count=numberTiktoks)
@@ -38,33 +40,32 @@ with open('tiktokPerfil.csv') as dados:
 
                 for tiktoks in tiktoksByUser:
 
-                        scrapTime = str(datetime.now().date())
+                        scrapTime       = str(datetime.now().date())
                         # Author
-                        AuthorName = tiktoks['author']['nickname']
-                        avatarAuthor = tiktoks['author']['avatarMedium']
-                        AuthorId = tiktoks['author']['id']
-                        Author = tiktoks['author']['uniqueId']
-                        videoId = tiktoks['video']['id']
-                        DurationVideo = tiktoks['video']['duration']
-                        createTime = str(TimesToDate(tiktoks['createTime']))
-                        description = tiktoks['desc']
+                        AuthorName      = tiktoks['author']['nickname']
+                        avatarAuthor    = tiktoks['author']['avatarMedium']
+                        AuthorId        = tiktoks['author']['id']
+                        Author          = tiktoks['author']['uniqueId']
+                        videoId         = tiktoks['video']['id']
+                        DurationVideo   = tiktoks['video']['duration']
+                        createTime      = str(TimesToDate(tiktoks['createTime']))
+                        description     = tiktoks['desc']
 
                         # Stats
-                        likesCount = tiktoks['stats']['diggCount']
-                        commentCount = tiktoks['stats']['commentCount']
-                        shareCount = tiktoks['stats']['shareCount']
-                        playCount = tiktoks['stats']['playCount']
+                        likesCount      = tiktoks['stats']['diggCount']
+                        commentCount    = tiktoks['stats']['commentCount']
+                        shareCount      = tiktoks['stats']['shareCount']
+                        playCount       = tiktoks['stats']['playCount']
                         # Music
-                        musicId = tiktoks['music']['id']
-                        musicTitle = tiktoks['music']['title']
-
+                        musicId         = tiktoks['music']['id']
+                        musicTitle      = tiktoks['music']['title']
+                        musicPlayUrl    = tiktoks['music']['playUrl']
+                        
                         try:
                                 musicAuthorName = tiktoks['music']['authorName']
                         except KeyError as Error:
                                 print(Error)
 
-
-                        
                         # Insights = api.get_insights(videoId)
 
                         # Creating link vídeo
@@ -74,7 +75,7 @@ with open('tiktokPerfil.csv') as dados:
 
                         data = [[numVideo, scrapTime, createTime, avatarAuthor, AuthorName, Author, description,
                                 DurationVideo, VideoLink, likesCount,commentCount, shareCount, playCount,
-                                musicId, musicTitle, musicAuthorName]]
+                                musicId, musicTitle, musicPlayUrl, musicAuthorName]]
 
                         dataCsv = dataCsv.append(data, ignore_index=False)
 
@@ -84,7 +85,7 @@ with open('tiktokPerfil.csv') as dados:
 
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
 
-        dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
-        'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId', 'musicTitle', 'musicAuthorName']
+                dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
+                'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl', 'musicAuthorName']
 
         dataCsv.to_csv('Data/tiktokData.csv', encoding='utf-8', index=False)
