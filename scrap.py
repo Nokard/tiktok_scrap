@@ -4,14 +4,8 @@ import pandas as pd
 import csv
 from time import sleep
 
-from progress.bar import IncrementalBar
-from tqdm import tqdm
 # Importing the settings
 from conf import api
-
-
-from getMusicData import getMusic
-
 
 def TimesToDate(timestamp):
     dt_object = datetime.fromtimestamp(timestamp)
@@ -85,7 +79,7 @@ with open('tiktokPerfil.csv') as dados:
 
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
 
-                dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
-                'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl', 'musicAuthorName']
+        dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
+        'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl', 'musicAuthorName']
 
         dataCsv.to_csv('Data/tiktokData.csv', encoding='utf-8', index=False)
