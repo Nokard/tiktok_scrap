@@ -1,10 +1,12 @@
 # Importing the settings
 from conf import api
 
-data = 'music'
-hashtag = api.byHashtag(data)
-print(hashtag)
-        
+results = 10
+
+trending = api.trending(results)
+
+for tik in trending:
+    print(tik["desc"])
 
 
 

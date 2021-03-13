@@ -4,6 +4,8 @@ import pandas as pd
 import csv
 from time import sleep
 
+from Data.saveData import saveDataCsv
+
 # Importing the settings
 from conf import api
 
@@ -16,7 +18,7 @@ def TimesToDate(timestamp):
 dataCsv = pd.DataFrame()
 
 num = 0
-numberTiktoks = 1000
+numberTiktoks = 100000
 
 # Reading a csv with tiktokers
 with open('tiktokPerfil.csv') as dados:
@@ -44,6 +46,7 @@ with open('tiktokPerfil.csv') as dados:
                         DurationVideo   = tiktoks['video']['duration']
                         createTime      = str(TimesToDate(tiktoks['createTime']))
                         description     = tiktoks['desc']
+                        
 
                         # Stats
                         likesCount      = tiktoks['stats']['diggCount']
@@ -70,16 +73,13 @@ with open('tiktokPerfil.csv') as dados:
                         data = [[numVideo, scrapTime, createTime, avatarAuthor, AuthorName, Author, description,
                                 DurationVideo, VideoLink, likesCount,commentCount, shareCount, playCount,
                                 musicId, musicTitle, musicPlayUrl, musicAuthorName]]
+                        
+                        #Chamando a funcção que salva os dados no CSV
+                        saveDataCsv(data)
 
-                        dataCsv = dataCsv.append(data, ignore_index=False)
 
                         # print(data)
 
                         numVideo += 1
 
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
-
-        dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName', 'Author', 'description',
-        'DurationVideo', 'VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl', 'musicAuthorName']
-
-        dataCsv.to_csv('Data/tiktokData.csv', encoding='utf-8', index=False)

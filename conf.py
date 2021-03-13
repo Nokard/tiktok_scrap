@@ -1,6 +1,6 @@
 from TikTokApi import TikTokApi
 
-verifyFp = "verify_klbau46r_u79j4ycy_0IiH_4ChI_9Oyw_bUiUzP864LyR"
+verifyFp = "verify_km5o6mwx_peYO06GK_fhWq_4fmc_8j9J_CAkDzakfVbOe"
 
 
-api = TikTokApi.get_instance(custom_verufyFp=verifyFp, use_test_endpoint=True)
+api = TikTokApi.get_instance(custom_verufyFp=verifyFp)
