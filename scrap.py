@@ -76,10 +76,7 @@ with open('tiktokPerfil.csv') as dados:
                         
                         #Chamando a funcção que salva os dados no CSV
                         saveDataCsv(data)
-
-
-                        # print(data)
-
+                        
                         numVideo += 1
 
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
