@@ -1,15 +1,14 @@
-import pandas as pd
+import csv
 
 
+columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName',  'Author', 'description','DurationVideo','VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl','musicAuthorName']
+
+ 
 def saveDataCsv(*data, **kwargs):
-    
-    #Using for to read a tuple to transform in list
-    for data in data:
-        dataCsv = data.append(data, ignore_index=False)
-
-    
-    #DataFrame columns
-    dataCsv.columns = ['num', 'scrapTime', 'createTime', 'AvatarAuthor', 'AuthorName',  'Author', 'description','DurationVideo','VideoLink', 'likesCount','commentCount', 'shareCount', 'playCount','musicId','musicTitle','musicPlayUrl','musicAuthorName']
-
-    dataCsv.to_csv('Data/tiktokData.csv', encoding='utf-8', index=False)
-   
+      
+      for data in data:
+         
+         with open('Data/tiktokData.csv','a', newline="",  encoding='utf-8') as file:
+         
+            writer = csv.writer(file, delimiter=',')
+            writer.writerow(data)
