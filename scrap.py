@@ -4,10 +4,13 @@ import pandas as pd
 import csv
 from time import sleep
 
+#from conf import api
 from Data.saveData import saveDataCsv
 
-# Importing the settings
-from conf import api
+verifyFp = "verify_knhmooha_PyoJh6oX_oeu0_4yFq_8PGS_D1bnbbk8f3J4"
+
+api = TikTokApi.get_instance(custom_verufyFp=verifyFp)
+
 
 def TimesToDate(timestamp):
     dt_object = datetime.fromtimestamp(timestamp)
@@ -18,7 +21,7 @@ def TimesToDate(timestamp):
 dataCsv = pd.DataFrame()
 
 num = 0
-numberTiktoks = 100000
+numberTiktoks = 1000000
 
 # Reading a csv with tiktokers
 with open('tiktokPerfil.csv') as dados:
@@ -32,20 +35,26 @@ with open('tiktokPerfil.csv') as dados:
                 nameTiktoker = dado[0]
 
                 tiktoksByUser = api.byUsername(nameTiktoker, count=numberTiktoks)
-                numVideo = 1
-
+                numVideo = 0
+                print(tiktoksByUser)
+                
                 for tiktoks in tiktoksByUser:
-
+                        print('-------------------------------------------------------------------------------')
                         scrapTime       = str(datetime.now().date())
                         # Author
-                        AuthorName      = tiktoks['author']['nickname']
-                        avatarAuthor    = tiktoks['author']['avatarMedium']
+                        nickname      = tiktoks['author']['nickname']
+                        avatarAuthor    = tiktoks['author']['avatarMedium'].join('?x-expires=1618502400&x-signature=xBYgvn8CwzYUwFdpHkAAfqRlzAk%3D')
                         AuthorId        = tiktoks['author']['id']
-                        Author          = tiktoks['author']['uniqueId']
+                        Author          = tiktoks['author']['uniqueId'] 
                         videoId         = tiktoks['video']['id']
                         DurationVideo   = tiktoks['video']['duration']
                         createTime      = str(TimesToDate(tiktoks['createTime']))
                         description     = tiktoks['desc']
+                        
+                        #Author Status
+                        followingCount  = tiktoks['authorStats']['followingCount']      # Pessoas que o perfil segue
+                        followerCount   = tiktoks['authorStats']['followerCount']       # total de seguidores do perfil
+                        heartCount      = tiktoks['authorStats']['heartCount']          # total de curtidas do perfil 
                         
 
                         # Stats
@@ -53,30 +62,29 @@ with open('tiktokPerfil.csv') as dados:
                         commentCount    = tiktoks['stats']['commentCount']
                         shareCount      = tiktoks['stats']['shareCount']
                         playCount       = tiktoks['stats']['playCount']
+                        
                         # Music
                         musicId         = tiktoks['music']['id']
                         musicTitle      = tiktoks['music']['title']
                         musicPlayUrl    = tiktoks['music']['playUrl']
+                        musicAuthorName = tiktoks['music']['authorName']
                         
-                        try:
-                                musicAuthorName = tiktoks['music']['authorName']
-                        except KeyError as Error:
-                                print(Error)
-
                         # Insights = api.get_insights(videoId)
-
+                        
                         # Creating link vídeo
                         VideoLink = 'https://www.tiktok.com/@{0}/video/{1}'.format(Author, videoId)
 
                         # dadosToCsv = pd.concat([createTime,AuthorId,Author,videoId,description,DurationVideo])
-
-                        data = [[numVideo, scrapTime, createTime, avatarAuthor, AuthorName, Author, description,
+                        data = [numVideo, scrapTime, createTime, avatarAuthor, nickname, Author, description,
                                 DurationVideo, VideoLink, likesCount,commentCount, shareCount, playCount,
-                                musicId, musicTitle, musicPlayUrl, musicAuthorName]]
-                        
+                                musicId, musicTitle, musicPlayUrl, musicAuthorName]
                         #Chamando a funcção que salva os dados no CSV
-                        saveDataCsv(data)
-                        
-                        numVideo += 1
 
+                        saveDataCsv(data)
+                        numVideo += 1                      
+                        #SAlVANDO DADOS NO CSV
+
+                
                 print(nameTiktoker, 'Total of Videos: ', numVideo)
+             
+    
