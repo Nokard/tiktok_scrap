@@ -58,7 +58,7 @@ with open('tiktokPerfil.csv') as dados:
                         
 
                         # Stats
-                        likesCount      = tiktoks['stats']['diggCount']
+                        likesCount      = tiktoks['stats']['diggCount']   
                         commentCount    = tiktoks['stats']['commentCount']
                         shareCount      = tiktoks['stats']['shareCount']
                         playCount       = tiktoks['stats']['playCount']
